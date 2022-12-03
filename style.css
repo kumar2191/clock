@@ -1,0 +1,114 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  height: 100vh;
+  background: #5684A0;
+}
+.position {
+  aspect-ratio: 1 / 1;
+  position: absolute;
+  inset: 0.5em;
+  margin: auto;
+}
+.bigbox {
+  position: fixed;
+  width: 30rem;
+}
+.clock-ctn {
+  background: darkblue;
+  width: 20%;
+  border-radius: 50%;
+  box-shadow: 0em 1em 6em 0em #000000a3;
+  margin-left: -50%;
+  left: 0;
+  top:-25em;
+  position:absolute;
+
+}
+/*.clock-ctn::before {
+  content: "";
+  width: 94%;
+  aspect-ratio: inherit;
+  position: inherit;
+  inset: inherit;
+  margin: inherit;
+  border: 2px solid #FF5733;
+  border-radius: 50%;
+  background: transparent;
+}*/
+.markers {
+  width: 2%;
+  aspect-ratio: 1 / 45;
+  border-radius: 30%;
+  background: #ffffff90;
+}
+.cardinal {
+  background: #FF5733;
+  width: 4%;
+  aspect-ratio: 2 / 45;
+}
+#m-3-9 {
+  transform: rotate(90deg);
+}
+#m-1-7 {
+  transform: rotate(30deg);
+}
+#m-2-8 {
+  transform: rotate(60deg);
+}
+#m-4-10 {
+  transform: rotate(-30deg);
+}
+#m-5-11 {
+  transform: rotate(-60deg);
+}
+.clock-face {
+  background: darkblue;
+  width: 75%;
+  border-radius: 50%;
+}
+.clock-hand {
+  border-radius: 2em;
+  background: linear-gradient(#FF5733 50%, transparent 50%);
+}
+.hour {
+  width: 3%;
+  aspect-ratio: 1 / 25;
+}
+.minute {
+  width: 2%;
+  aspect-ratio: 1 / 45;
+}
+.second {
+  width: .5%;
+  aspect-ratio: 1 / 192;
+  background: linear-gradient(red 50%, transparent 50%);
+}
+.dot {
+  width: 7%;
+  border-radius: 50%;
+  background: #fff;
+}
+p {
+  color: darkblue;
+  font-size: 1rem;
+  text-align: center;
+  width: 70%;
+  position: absolute;
+  bottom: 11%;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+}
+.ref {
+  font-size: 0.7em;
+  bottom: 4%;
+  color: #ffffff89;
+}
+a {
+  text-decoration: .1em darkblue underline;
+  color: darkblue;
+}
