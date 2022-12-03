@@ -22,11 +22,6 @@ body {
   width: 50%;
   border-radius: 50%;
   box-shadow: 0em 1em 6em 0em #000000a3;
-  margin-left: -50%;
-  left: 0;
-  top:-25em;
-  position:absolute;
-
 }
 /*.clock-ctn::before {
   content: "";
