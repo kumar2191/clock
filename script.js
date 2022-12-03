@@ -1,24 +1,50 @@
-var date = new Date();
-var currentHour = date.getHours();
-var currentMinute = date.getMinutes();
-var currentSecond = date.getSeconds();
-var secondHand = document.querySelector(".second");
-var minuteHand = document.querySelector(".minute");
-var hourHand = document.querySelector(".hour");
-var x = currentSecond * 6;
-var y = currentMinute * 6 + ((6/60)*currentSecond);
-var z = currentHour * 30 + ((30/60)*currentMinute + (((30/60)/60)*currentSecond));
-// 'x' is the degree value of the secondHand 'Transform[Rotate]'
-// 'y' is the degree value of the minuteHand 'Transform[Rotate]'
-// 'z' is the degree value of the hourHand 'Transform[Rotate]'
-setInterval(function () {
-  x += 6/100;
-  y += (6/100/60);
-  z += (6/100/60/12);
-  secondHand.style.transform = "rotate(" + x + "deg)";
-  minuteHand.style.transform = "rotate(" + y + "deg)";
-  hourHand.style.transform = "rotate(" + z + "deg)";
-}, 10);
-window.addEventListener("focus", function () {
-  window.location.reload();
-});
+var dialLines = document.getElementsByClassName('diallines');
+var clockEl = document.getElementsByClassName('clock')[0];
+
+for (var i = 1; i < 60; i++) {
+  clockEl.innerHTML += "<div class='diallines'></div>";
+  dialLines[i].style.transform = "rotate(" + 6 * i + "deg)";
+}
+
+function clock() {
+  var weekday = [
+        "Sunday",
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday",
+        "Saturday"
+      ],
+      d = new Date(),
+      h = d.getHours(),
+      m = d.getMinutes(),
+      s = d.getSeconds(),
+      date = d.getDate(),
+      month = d.getMonth() + 1,
+      year = d.getFullYear(),
+           
+      hDeg = h * 30 + m * (360/720),
+      mDeg = m * 6 + s * (360/3600),
+      sDeg = s * 6,
+      
+      hEl = document.querySelector('.hour-hand'),
+      mEl = document.querySelector('.minute-hand'),
+      sEl = document.querySelector('.second-hand'),
+      dateEl = document.querySelector('.date'),
+      dayEl = document.querySelector('.day');
+  
+      var day = weekday[d.getDay()];
+  
+  if(month < 9) {
+    month = "0" + month;
+  }
+  
+  hEl.style.transform = "rotate("+hDeg+"deg)";
+  mEl.style.transform = "rotate("+mDeg+"deg)";
+  sEl.style.transform = "rotate("+sDeg+"deg)";
+  dateEl.innerHTML = date+"/"+month+"/"+year;
+  dayEl.innerHTML = day;
+}
+
+setInterval("clock()", 100);
